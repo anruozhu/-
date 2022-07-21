@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class game1 {
+    public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+   
+   String result=" ";
+      while(true){
+         System.out.println("""
+            来玩石头剪刀布！
+            输入“1、2、3”分别代表“石头”、“剪刀”、“布”
+            请输出你的选择：""");
+
+      int choice = scanner.nextInt();
+      int random = 1+(int)(Math.random()*3);
+      result = switch(choice) {
+      case 1 -> random == 1 ? "平" : (random == 2 ? "胜" : "负");
+      case 2 -> random == 2 ? "平" : (random == 3 ? "胜" : "负");
+      case 3 -> random == 3 ? "平" : (random == 1 ? "胜" : "负");
+      default -> "非法输入";
+      };
+      if(result.equals("负")){
+      System.out.println("本局结果：" + result+"大侠请重新来过！");
+      continue;
+      }else if(result.equals("平")){
+         System.out.println("本局结果："+result+",胜利就在眼前，再接再厉！");
+         continue;
+      }else if(result.equals("胜")){
+         System.out.println("大获全胜！");
+         break;
+      } 
+     }}
+    }
+
+
